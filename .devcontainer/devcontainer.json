@@ -1,0 +1,16 @@
+{
+  "name": "Tickets Automações",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "app_tickets_automacoes",
+  "workspaceFolder": "/tickets_automacoes",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "forwardPorts": [3000]
+}

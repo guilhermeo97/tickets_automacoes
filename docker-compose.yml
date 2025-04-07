@@ -1,0 +1,21 @@
+services:
+  app_tickets_automacoes:
+    build: .
+    depends_on:
+      - db_tickets_automacoes
+
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/tickets_automacoes
+
+    environment:
+      - NODE_ENV=development
+
+  db_tickets_automacoes:
+    image: mysql:8.0.40-bookworm
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - '3307:3306'
