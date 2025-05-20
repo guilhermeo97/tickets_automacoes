@@ -11,7 +11,7 @@ import { UpdateUserDto } from '../../application/dto/update-user.dto';
 import { CreateUserDto } from '../../application/dto/create-user.dto';
 
 @Controller('users')
-export class UsersController {
+export class UserController {
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
     return createUserDto;

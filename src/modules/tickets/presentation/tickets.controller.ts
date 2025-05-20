@@ -7,13 +7,13 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { CreateTaskDto } from '../application/dto/create-task.dto';
-import { UpdateTaskDto } from '../application/dto/update-task.dto';
+import { CreateTicketDto } from '../application/dto/create-ticket.dto';
+import { UpdateTicketDto } from '../application/dto/update-ticket.dto';
 
 @Controller('tasks')
-export class TasksController {
+export class TicketController {
   @Post()
-  create(@Body() createTaskDto: CreateTaskDto) {
+  create(@Body() createTaskDto: CreateTicketDto) {
     //return this.tasksService.create(createTaskDto);
   }
 
@@ -28,7 +28,7 @@ export class TasksController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTaskDto: UpdateTaskDto) {
+  update(@Param('id') id: string, @Body() updateTaskDto: UpdateTicketDto) {
     // this.tasksService.update(+id, updateTaskDto);
   }
 
