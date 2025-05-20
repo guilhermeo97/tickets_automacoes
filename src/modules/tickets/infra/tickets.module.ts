@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TicketController } from '../presentation/tickets.controller';
-import { UsersModule } from 'src/modules/users/infra/users.module';
+import { UserModule } from 'src/modules/users/infra/users.module';
 
 @Module({
-  imports: [UsersModule],
+  imports: [UserModule],
   controllers: [TicketController],
   providers: [],
 })

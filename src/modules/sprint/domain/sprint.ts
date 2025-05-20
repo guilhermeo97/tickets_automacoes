@@ -1,28 +1,30 @@
+import { create } from 'domain';
+
 export class Sprint {
   private id?: number;
   private name: string;
   private startDate: Date;
   private endDate: Date;
   private status: string;
-  private createdAt: Date;
-  private updatedAt: Date;
+  private createdAt?: Date;
+  private updatedAt?: Date;
 
   constructor(
     name: string,
     startDate: Date,
     endDate: Date,
-    status: string,
-    createdAt: Date,
-    updatedAt: Date,
     id?: number,
+    createdAt?: Date,
+    updatedAt?: Date,
+    status?: string,
   ) {
-    this.id = id || 0;
+    this.id = id ? id : 0;
     this.name = name;
     this.startDate = startDate;
     this.endDate = endDate;
-    this.status = status;
-    this.createdAt = createdAt;
-    this.updatedAt = updatedAt;
+    this.status = status ? status : this.actualState(startDate);
+    this.createdAt = createdAt ? createdAt : new Date();
+    this.updatedAt = updatedAt ? updatedAt : new Date();
   }
 
   public getId(): number {
@@ -61,8 +63,15 @@ export class Sprint {
     return this.status;
   }
 
-  public setStatus(status: string): void {
-    this.status = status;
+  public actualState(data: Date): string {
+    const today = new Date();
+    if (data >= today) {
+      this.status = 'active';
+    }
+    if (data < today) {
+      this.status = 'inactive';
+    }
+    return this.status;
   }
 
   public getCreatedAt(): Date {

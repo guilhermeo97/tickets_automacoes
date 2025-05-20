@@ -11,5 +11,5 @@ export class CreateUserUseCase {
     //private readonly jwtService: JwtService,
   ) {}
 
-  async execute(createUserDto: CreateUserDto): Promise<User> {}
+  async execute(createUserDto: CreateUserDto) {}
 }
